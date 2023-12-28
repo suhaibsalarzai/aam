@@ -1,3 +1,5 @@
+import 'package:aam/screens/notification_screen.dart';
+import 'package:aam/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -37,17 +39,25 @@ class HomeContent extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                          border: Border.all(
-                            color: Colors.grey, // Set border color
-                            width: 1.0, // Set border width
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NotificationsScreen()));
+                        },
+                        child: Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                            border: Border.all(
+                              color: Colors.grey, // Set border color
+                              width: 1.0, // Set border width
+                            ),
                           ),
+                          child: Icon(Icons.notifications),
                         ),
-                        child: Icon(Icons.notifications),
                       ),
                     ),
                   ],
@@ -128,8 +138,16 @@ class HomeContent extends StatelessWidget {
               ),
               Row(
                 children: [
-                  CircleAvatar(
-                    radius: 30,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfileScreen()));
+                    },
+                    child: CircleAvatar(
+                      radius: 25,
+                    ),
                   ),
                   SizedBox(
                     width: 8,
